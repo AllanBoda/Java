@@ -1,22 +1,3 @@
-
-function maioEmenor(numeros){
-let maior=-99999, menor=99999;
-
-    for (let numero of numeros){
-    if(numero < menor){
-        menor = numero;
-    }
-    if(numero > maior){
-        maior = numero;
-    }
-}
-return maior-menor;
-}
-
-const numeros = [43, 44, 31, 33, 32];
-
-console.log('A diferença entre os números é: '+maioEmenor(numeros));
-
 // Exercício número 1;
 
 let v1=3, v2=2;
@@ -31,12 +12,10 @@ console.log('o primeiro número é: '+val+' e o segundo é: '+vv2);
 function meioE(maior1, maior2){
 let maior;
     if (maior1 > maior2){
-        maior = maior1;
-    } else{
-        maior = maior2;
-    }
+       return maior1;
+    } 
 
-return maior;
+return maior2;
 }
 maiorNumero = meioE(5,3);
 
@@ -56,86 +35,70 @@ tamanho = larguraEaltura(3,2);
 
 console.log('O resultado é: '+tamanho);
 
-// Exercício número 4;
+ //Exercício número 4;
 
 function Fizz_Buzz(num){
     let final;
-    switch (num){
-    case "":
-    final = 'NaN - Não é um número! Informe um número';
-    break;
-    default:
-    if(num%3==0 && num%5==0){
-        final = 'FizzBuzz';
-    }else if(num%3==0){
-        final = 'Buzz';
-    }else if(num%5==0){
-        final = 'Fizz';
+    
+    if(typeof num === 'number'){
+        if(num%3===0 && num%5===0){
+            final = FizzBuzz;
+        }else if(num%3===0){
+            final = Fizz;
+        }else if(num%5===0){
+            final = Buzz;
+        } else{
+            final = num;
+        }
     }else{
-        final = num;
+        final = "NaN - Não é um número! Informe um número"
     }
-    }
+   
     return final;
 }
-var FizzBuzzs = Fizz_Buzz(5);
+var FizzBuzzs = Fizz_Buzz("A");
 
 console.log(FizzBuzzs);
 
-// Exercício número 5: Escreva uma função que, dado um número limite, imprima, até esse limite "par" ou "ímpar"
-// (verificando os números entre 0 e limite).
-/*
-function limitParImpar(limit, PoI){
-    var ine=[];
-
-    switch (PoI){
-        case 'par':
-        for(let nume of limit){
-            i=0
-            if (nume%2===0){
-                ine[i] = nume;
-                i++;
-            }
+// Exercício número 5
+function limitParImpar(limit){
+   
+    let i, max=[limit];
+    
+    for(i=0;i<limit;i++){
+        if (i%2==0){
+            max[i]="Par";
+        }else{
+            max[i]="Impar";
         }
-        break;
-
-        case 'impar':
-        for(let nume of limit){
-            i=0
-             if (nume%2!==0){
-            ine[i] = nume;
-             i++;
-             }
-         }  
-        break;
-
-        default:
-        return 'Não é par nem impar';
-
-
     }
-    return ine;
+return max;
 }
-
-LIMIT = limitParImpar(4,'par');
-console.log(LIMIT);
-*/
+limites = 5;
+console.log(limitParImpar(limites));
 // Exercício número 6
 
 function Truthy(seraoVerdade){
-let total;
+    let total=0;
 
 for (let vdd of seraoVerdade){
-    
-    if(vdd!==false && vdd!==0 && vdd!==undefined && vdd!==null && vdd!=="" && vdd!==NaN){
+   
+    if(vdd){
         total ++;
     }
 }
 
 return total;
 }
-
-const seraoVerdade = [0, 2, 2];
+const seraoVerdade = [0, 2, "oi", null];
 console.log(Truthy(seraoVerdade));
 
 // Exercício número 7
 
+function str(obj){
+    for (const property in obg){
+        if (typeof obj[property] === 'string'){
+            console.log(property+': '+obj[property])
+        }
+    }
+}
